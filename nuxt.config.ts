@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 import tailwindcss from "@tailwindcss/vite";
-import Aura from '@primeuix/themes/aura';
+import Lara from '@primeuix/themes/lara';
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
@@ -11,12 +11,13 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxt/icon',
-    '@primevue/nuxt-module'
+    '@primevue/nuxt-module',
+    '@tailwindcss/vite'
   ],
     primevue: {
       options: {
         theme: {
-            preset: Aura
+            preset: Lara
         }
     }
     },
@@ -24,5 +25,5 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ]
-  },
+  }
 })
