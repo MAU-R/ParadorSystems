@@ -14,8 +14,18 @@ const rooms = [
 const services = [
     {
         id:'wifi',
-        icon: '',
+        icon: 'material-symbols:wifi',
         label: 'Wifi'
+    },
+    {
+        id:'bath',
+        icon: 'material-symbols:bathtub-outline-sharp',
+        label: 'Baños'
+    },
+    {
+        id:'persons',
+        icon: 'material-symbols:person-apron-outline-rounded',
+        label: 'Personas'
     }
 
 ]
@@ -27,6 +37,14 @@ const serviceOnRoom = [
             {
                 serviceId:'wifi',
                 quantity:null
+            },
+            {
+                serviceId:'bath',
+                quantity:2
+            },
+            {
+                serviceId:'persons',
+                quantity:2
             }
         ]
     }
@@ -34,32 +52,37 @@ const serviceOnRoom = [
 
 const base64Image = [
     {
-        id:1
-    }
-]
-
-const imageOnRoom = [
+        id:1,
+        description: 'Photo of the room 1',
+        roomId:1
+    },
     {
-        roomId: 1,
-        images: [1, 2, 3]
+        id:2
+    },
+    {
+        id:3
     }
 ]
 
-const getgallery=(roomId: number)=>{
-    const imageRelation= imageOnRoom.find(image => image.roomId === roomId)
-    return imageRelation?.images?.map(image => base64Image.filter(img => img.id === image))
-}
 
-//const getServices = ()
-export const getFeaturedRooms = () =>{
-    return rooms.filter(room =>{
-        if (room.featured==true)
+ const getRoomServices = (roomId: number) => {
+    const serviceRelation = serviceOnRoom.find(service => service.roomId === roomId)
+    console.log("Pero que diablo esta pasando aqui")
+    const imageIds = serviceRelation?.services?.map(service => service.serviceId)
+    return services.filter(service => imageIds?.includes(service.id))
+ }
+ export const getFeaturedRooms = () => {
+    const roomWithAll = rooms.map(room => {
+        if (room.featured === true) {
             return {
-        ...rooms,
-        gallery: base64Image.filter(
-                    }
-         
-    })
+                ...room,
+                services: getRoomServices(room.id),
+                images: base64Image.filter(image => image.roomId === room.id)
+            }
+        }
+        return room;
+    });
+    return roomWithAll;
 }
 
 export const getSuites = { 
