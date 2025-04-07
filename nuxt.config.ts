@@ -25,5 +25,15 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ]
+  },
+  app: {
+    head: {
+      link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@600;700&display=swap',
+        },
+      ],
+    },
   }
 })

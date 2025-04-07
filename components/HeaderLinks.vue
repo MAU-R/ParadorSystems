@@ -5,7 +5,7 @@
         <p class="font-semibold text-(--primary-light-hover) 2xl:text-xl xl:text-lg lg:text-xl md:text-lg sm:text-md mb-2">Guanajuato centro</p>
         <p class="font-semibold text-(--primary-light-hover) 2xl:text-xl xl:text-lg lg:text-xl md:text-lg sm:text-md mb-2">473 117 0056</p>
     </div>
-    <div class="w-max flex-1 xl:max-w-[65%] lg:max-w-[100%] flex ml-auto h-max justify-end no-wrap self-center">
+    <div class="w-max flex-1 xl:max-w-[63%] lg:max-w-[100%] flex ml-auto h-max justify-end no-wrap self-center">
         <span
         v-for="link in links" :key="link.name"
         class=" 2xl:text-2xl xl:text-xl lg:text-xl md:text-lg sm:text-md  font-bold lg:p-4"
