@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 import tailwindcss from "@tailwindcss/vite";
-import Lara from '@primeuix/themes/lara';
+import Material from '@primeuix/themes/material';
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
@@ -17,7 +17,13 @@ export default defineNuxtConfig({
     primevue: {
       options: {
         theme: {
-            preset: Lara
+          preset:Material,
+            options: {
+                cssLayer: {
+                    name: 'primevue',
+                    order: 'theme, base, primevue'
+                }
+            }
         }
     }
     },

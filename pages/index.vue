@@ -59,7 +59,7 @@
 
     <!--SECTION FOR THE SERVICES-->
     <section class="w-full h-[75vh] my-10 p-20 flex flex-col justify-between">
-       <h3 class="text-(--blue-normal) 2xl:text-6xl xl:text-5xl max-w-[55vw] font-bold">Servicios que incluye su estancia</h3>
+       <h3 class=" 2xl:text-6xl xl:text-5xl max-w-[55vw] font-bold">Servicios que incluye su estancia</h3>
        <div class="h-1/2 w-full flex justify-between gap-10 flex-nowrap" >
         <article
         v-for="service in services" :key="service.title"
@@ -67,13 +67,13 @@
         >
         <Icon :name="service.icon" style="color: var(--blue-normal); height: 100px; width:150px; font-weight: 900;" />
         <h4 class="2xl:text-xl xl:text-lg text-(--blue-dark) font-bold">{{ service.title }}</h4>
-        <p class="2xl:text-lg xl:text-md text-(--blue-normal) font-semibold">{{ service.description }}</p>
+        <p class="2xl:text-lg xl:text-md  font-semibold">{{ service.description }}</p>
     </article>
        </div>
     </section>
     <!--PHOTO GALLERY SECTION-->
-    <section class="w-full h-[100vh]">
-        <h3 class="">Explora el encanto del parador</h3>
+    <section id="photoGallery" class="w-full h-[100vh] 2xl:p-10 xl:p-8 lg:p-6 md:p-4 xs:p-2">
+        <h3 class="w-full 2xl:text-6xl xl:text-4xl text-center font-black">Explora el encanto del parador</h3>
         <PhotoGallery/>
     </section>
 </section>

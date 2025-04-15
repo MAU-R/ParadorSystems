@@ -26,6 +26,7 @@
 
   body{
     background-color: var(--primary-light);
+    color: var(--blue-normal);
     font-family: 'Lato', sans-serif;
   }
   .type-h{
