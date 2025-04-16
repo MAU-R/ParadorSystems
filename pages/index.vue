@@ -77,9 +77,9 @@
         <PhotoGallery/>
     </section>
     <!--Section for the contact form-->
-    <section class="p-8">
-        <h2 class="w-full text-end 2xl:text-7xl xl:text-5xl lg:text-3xl md:text-xl sm:text-lg xs:text-md font-black">Contactanos para hacer una <br> reservacion</h2>
-        <PhotoGallery/>
+    <section class="">
+        <h2 class="p-8 w-full text-end 2xl:text-7xl xl:text-5xl lg:text-3xl md:text-xl sm:text-lg xs:text-md font-black">Contactanos para hacer una <br> reservacion</h2>
+    <ContactForm/>
     </section>
 </section>
 
@@ -90,6 +90,7 @@
 </template>
 
 <script setup>
+import ContactForm from '~/components/ContactForm.vue';
 import FeatureRoomsCards from '~/components/FeatureRoomsCards.vue';
 import PhotoGallery from '~/components/PhotoGallery.vue';
 const featuredRooms = ref(null)
