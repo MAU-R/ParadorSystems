@@ -76,6 +76,11 @@
         <h3 class="w-full 2xl:text-6xl xl:text-4xl text-center font-black">Explora el encanto del parador</h3>
         <PhotoGallery/>
     </section>
+    <!--Section for the contact form-->
+    <section class="p-8">
+        <h2 class="w-full text-end 2xl:text-7xl xl:text-5xl lg:text-3xl md:text-xl sm:text-lg xs:text-md font-black">Contactanos para hacer una <br> reservacion</h2>
+        <PhotoGallery/>
+    </section>
 </section>
 
 
@@ -86,6 +91,7 @@
 
 <script setup>
 import FeatureRoomsCards from '~/components/FeatureRoomsCards.vue';
+import PhotoGallery from '~/components/PhotoGallery.vue';
 const featuredRooms = ref(null)
 onMounted(()=>{
 featuredRooms.value=getFeaturedRooms()
