@@ -1,11 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-import tailwindcss from "@tailwindcss/vite";
-import Material from '@primeuix/themes/material';
+import tailwindcss from "@tailwindcss/vite";  
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  css: ['~/assets/css/main.css'],
+  css: [
+    '~/assets/css/main.css' // your own styles
+  ],
   modules: [
     '@nuxt/content',
     '@nuxt/eslint',
@@ -16,15 +17,7 @@ export default defineNuxtConfig({
   ],
     primevue: {
       options: {
-        theme: {
-          preset:Material,
-            options: {
-                cssLayer: {
-                    name: 'primevue',
-                    order: 'theme, base, primevue'
-                }
-            }
-        }
+        unstyled:true
     }
     },
   vite: {
