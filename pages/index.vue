@@ -23,19 +23,18 @@
         <!--Component for the room cards-->
 
        </div>
-    </section>
+    </section>      
     <!--SECTION FOR THE HOW TO BOOK ROOM-->
-    <section class="mt-15 mb-15 h-[95vh] bg-(--primary-light) flex flex-col w-full 2xl:px-28 xl:px-22 text-(--blue-normal) 2xl:gap-8">
-        <h1 class="self-center text-(--blue-dark) 2xl:text-6xl xl:text-4xl font-semibold text-center">Como reservar</h1>
-        <h4 class="self-center 2xl:w-6/10 text-center 2xl:text-4xl xl:text-2xl">Este es el proceso por el cual puedes reservar un cuarto por nosotros, es sencillo y rapido</h4>
-        <div class="h-[70vh] w-full flex justify-around flex-nowrap gap-2 ">
+    <section class=" h-[90vh] bg-(--primary-light) flex flex-col w-full 2xl:px-28 xl:px-22 text-(--blue-normal) 2xl:gap-8 my-32">
+        <h2 class="self-center text-(--blue-dark) title_responsive text-center">Como reservar</h2>
+        <h4 class="self-center 2xl:w-6/10 text-center 2xl:text-2xl xl:text-xl">Este es el proceso por el cual puedes reservar un cuarto por nosotros, es sencillo y rapido</h4>
+        <div class="h-[50vh] w-full flex justify-around flex-nowrap gap-2 mb-auto">
             <book-process v-for="instruction, index in instructions" :key="index" :instruction="instruction" :number="index+1"/>
         </div>
-        <h3 class="mt-auto font-black xl:text-3xl px-25">Contactos</h3>
         <article class="h-min flex 2xl:gap-28 xl:gap-20 lg:gap-16 justify-center  items-end">
-            <p class="h-min align-bottom"><Icon name="material-symbols:perm-phone-msg" class="mr-2 2xl:text-5xl xl:text-4xl"/><span class="h-full align-top 2xl:text-3xl xl:text-2xl font-bold">473-110-1235</span></p>
-            <p class="h-min align-bottom"><Icon name="material-symbols:mail" class="mr-2 2xl:text-5xl xl:text-4xl"/><span class="h-full align-top 2xl:text-3xl xl:text-2xl font-bold">paradordelconvento@gmail.com</span></p>
-            <button class="bg-(--primary-normal) p-4 px-8 rounded-3xl text-(--blue-light) 2xl:text-2xl xl:text-xl"><a href="#contact">Contacto</a></button>
+            <p class="h-min align-bottom"><Icon name="material-symbols:perm-phone-msg" class="mr-2 2xl:text-5xl xl:text-4xl"/><span class="h-full align-top 2xl:text-xl xl:text-lg font-bold">473-110-1235</span></p>
+            <p class="h-min align-bottom"><Icon name="material-symbols:mail" class="mr-2 2xl:text-5xl xl:text-4xl"/><span class="h-full align-top 2xl:text-xl xl:text-lg font-bold">paradordelconvento@gmail.com</span></p>
+            <button class="bg-(--primary-normal) p-4 px-8 rounded-3xl text-(--blue-light) 2xl:text-xl xl:text-lg"><a href="#contact">Contacto</a></button>
         </article>
      
     </section>
@@ -58,7 +57,7 @@
     </section>
 
     <!--SECTION FOR THE SERVICES-->
-    <section class="w-full h-[75vh] my-10 p-20 flex flex-col justify-between">
+    <section class="w-full h-[75vh] my-10 p-20 flex flex-col justify-between mb-48 mt-24">
        <h3 class=" 2xl:text-6xl xl:text-5xl max-w-[55vw] font-bold">Servicios que incluye su estancia</h3>
        <div class="h-1/2 w-full flex justify-between gap-10 flex-nowrap" >
         <article
@@ -72,7 +71,7 @@
        </div>
     </section>
     <!--PHOTO GALLERY SECTION-->
-    <section id="photoGallery" class="w-full h-[100vh] 2xl:p-10 xl:p-8 lg:p-6 md:p-4 xs:p-2">
+    <section id="photoGallery" class="w-full h-[100vh] 2xl:p-10 xl:p-8 lg:p-6 md:p-4 xs:p-2 mb-48">
         <h3 class="w-full 2xl:text-6xl xl:text-4xl text-center font-black">Explora el encanto del parador</h3>
         <PhotoGallery/>
     </section>
@@ -115,7 +114,7 @@ const instructions = [
         title: 'Confirma tu reservación',
         description:'Elige y verifica disponibilidad de los cuartos, nosotros te ayudaremos a encontrar el mejor cuarto para ti',
         backgroundIcon:'ic:twotone-playlist-add-check-circle',
-        translate:35
+        translate:25
     }
 ]
 const roomTypes = [

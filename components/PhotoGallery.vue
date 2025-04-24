@@ -1,13 +1,13 @@
 <template>
   <section id="photoGallery">
-    <Tabs v-model:active-index="activeIndex" class="w-full mt-6">
-      <TabList class="w-full flex justify-center gap-2 relative pb-1">
+    <Tabs ref="tabList" v-model:active-index="activeIndex" class="w-[100%] mt-6" value="0">
+      <TabList  class="w-full flex justify-center gap-8 relative pb-1">
         <Tab
           v-for="(tab, index) in categories"
           :key="tab.title"
           class="font-bold bg-(--primary-light) text-(--blue-normal)
                  2xl:text-xl xl:text-xl px-4 py-2 relative z-10
-                 hover:opacity-80 transition-all duration-200"
+                 hover:opacity-80 transition-all duration-200 w-[100px] max-w-[100px] mr-6"
           :class="{ 'text-(--blue-dark)': activeIndex === index }"
           :value="tab.value"
           @click="activeIndex = index"
@@ -16,7 +16,7 @@
         </Tab>
         <!-- Active bar indicator -->
         <div 
-          class="absolute bottom-0 h-1 bg-(--blue-dark) transition-all duration-300 ease-in-out z-0"
+          class="absolute bottom-0 h-1 bg-(--blue-dark) transition-all duration-300 ease-in-out z-0 w-[5vw] self-center"
           :style="activeBarStyle"
         />
       </TabList>
@@ -27,7 +27,7 @@
           v-show="activeIndex === index"
           :key="tab.value"
           :value="tab.value"
-          class="bg-(--primary-light) grid gap-1 w-full
+          class="mt-6 bg-(--primary-light) grid gap-1 w-full
                  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8
                  auto-rows-[minmax(100px,1fr)] h-[70vh]"
         >
@@ -83,15 +83,23 @@ import TabPanel from 'primevue/tabpanel';
 const activeIndex = ref(0);
 const showModal = ref(false);
 const selectedImage = ref(null);
-
+const tabList = ref(null)
+const tabListwidth = ref(0)
+onMounted(async() => {
+  await nextTick()
+  if (tabList.value) {
+    tabListwidth.value = tabList.value.clientWidth
+    console.log('Width:', tabListwidth.value)
+  }
+})
 // Compute active bar position and width
 const activeBarStyle = computed(() => {
   const tabCount = categories.length;
-  const width = 100 / tabCount;
+  const width = 250 / tabCount;
   return {
-    width: `${width}%`,
-    left: `${activeIndex.value * width}%`,
-    transform: 'translateX(0)' // Ensures proper positioning
+    width: `${80}px`,
+    'max-width':'100px',
+    transform: `translateX(${activeIndex.value*(127.5)+12}px)`// Ensures proper positioning
   };
 });
 

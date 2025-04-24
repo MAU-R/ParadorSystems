@@ -13,7 +13,8 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/icon',
     '@primevue/nuxt-module',
-    '@tailwindcss/vite'
+    '@tailwindcss/vite',
+    "nuxt-ark-ui"
   ],
     primevue: {
       options: {

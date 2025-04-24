@@ -7,16 +7,16 @@
     <!-- Background icon -->
     <Icon 
       :name="instruction.backgroundIcon" 
-      style="height: 120%; width: 120%;"
-      class="absolute inset-0 opacity-40 text-(--primary-light-active) -translate-x-45 -translate-y-0"
+      style="height: 80%; width: 80%;"
+      class="absolute inset-0 opacity-40 text-(--primary-light-active) -translate-x-15 -translate-y-0"
       aria-hidden="true"
     />
     
     <!-- Your content -->
     <div class="relative z-20 flex flex-col gap-1 align-center">
-        <h3 class="text-center 2xl:text-7xl xl:text-5xl font-black text-(--blue-dark)">0{{number}}</h3>
-        <h3 class="text-center text-(--blue-dark) font-extrabold 2xl:text-3xl xl:text-2xl mb-2 ">{{ instruction.title }}</h3>
-        <p class="text-justify self-start  font-semibold xl:text-xl">{{ instruction.description }}</p>
+        <h3 class="text-center 2xl:text-5xl xl:text-3xl font-black text-(--blue-dark)">0{{number}}</h3>
+        <h3 class="text-center text-(--blue-dark) font-extrabold 2xl:text-xl xl:text-lg mb-2 ">{{ instruction.title }}</h3>
+        <p class="text-justify self-start  font-semibold xl:text-md">{{ instruction.description }}</p>
     </div>
    </div>
 </template>
