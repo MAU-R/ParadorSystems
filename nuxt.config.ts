@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxt/icon',
+
     '@primevue/nuxt-module',
     '@tailwindcss/vite',
     "nuxt-ark-ui"

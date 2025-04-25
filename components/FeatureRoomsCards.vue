@@ -5,8 +5,8 @@
     
     <div class="p-1 w-full h-[calc(45%+5%)]"><div class="customImage w-full h-full rounded-2xl z-10 "/></div>
     <div class="customBadge content w-full py-4 px-4  flex flex-col justify-between gap-1 rounded-2xl z-15 text-(--blue-light)">
-        <h1 class="font-bold text-2xl xl:text-3xl md:text-xl sm:text-md">{{ room.title }}</h1>
-        <p class="xl:text-lg md:text-md sm:text-sm ">{{ room.description }}</p>
+        <h1 class="font-bold" :class="subtitleClass">{{ room.title }}</h1>
+        <p class=" " :class="textClass">{{ room.description }}</p>
         <div class="grid grid-cols-3  gap-2 w-full">
             <div
             v-for="service in room.services" :key="service.id"
@@ -30,7 +30,7 @@ const {room} = defineProps({
     },
 })
 
-
+import { textClass, titleClass, subtitleClass } from '~/utils/getClasses';
 </script>
 
 <style>

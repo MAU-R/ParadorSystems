@@ -79,6 +79,7 @@ import TabList from 'primevue/tablist';
 import Tab from 'primevue/tab';
 import TabPanels from 'primevue/tabpanels';
 import TabPanel from 'primevue/tabpanel';
+import { textClass, titleClass, subtitleClass } from '~/utils/getClasses';
 
 const activeIndex = ref(0);
 const showModal = ref(false);

@@ -14,15 +14,15 @@
     
     <!-- Your content -->
     <div class="relative z-20 flex flex-col gap-1 align-center">
-        <h3 class="text-center 2xl:text-5xl xl:text-3xl font-black text-(--blue-dark)">0{{number}}</h3>
-        <h3 class="text-center text-(--blue-dark) font-extrabold 2xl:text-xl xl:text-lg mb-2 ">{{ instruction.title }}</h3>
-        <p class="text-justify self-start  font-semibold xl:text-md">{{ instruction.description }}</p>
+        <h3 class="text-center  font-black text-(--blue-dark)" :class="titleClass">0{{number}}</h3>
+        <h3 class="text-center text-(--blue-dark) font-extrabold mb-2" :class="subtitleClass">{{ instruction.title }}</h3>
+        <p class="text-justify self-start  font-semibold xl:text-md" :class="textClass">{{ instruction.description }}</p>
     </div>
    </div>
 </template>
 
 <script setup lang="ts">
-
+import { titleClass, subtitleClass, textClass } from '../utils/getClasses.js';
  const {instruction, number} = defineProps({
     instruction:{
         type: Object,

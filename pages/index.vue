@@ -7,12 +7,12 @@
     <section class="flex justify-center w-full h-[100vh] px-10 pt-10 bg-[url(https://elotroenfoque.mx/wp-content/uploads/2023/10/turismo-gto-5.jpeg)] bg-cover overflow-x-hidden">
        <div class="justify-self-center bg-(--blue-dark)/60 max-w-[1650px] w-full h-full rounded-4xl rounded-b-none border-solid border-6 border-(--blue-light)/40 p-10 md:p-5 sm:p-4 flex flex-col justify-between gap-10">
         <!--Component for the header links-->
-        <header-links/>
+        <header-links :show-minimal="false" class="text-(--primary-light-hover)"/>
         <!--Component for the header links-->
 
-        <h1 class="2xl:text-7xl xl:text-6xl lg:text-6xl md:text-5xl sm:text-3xl tracking-[15px] text-(--blue-light) font-semibold self-center w-full text-center mt-auto">parador del convento</h1>
-        <p class="2xl:text-3xl xl:text-2xl lg:text-2xl md:text-lg sm:text-sm font-regular text-(--primary-light-hover) w-17/20 self-center text-center mb-auto">Ven y conoce guanajuato mientras te hospedas en el centro de la ciudad. Disfruta de todos los servicios que ofrecemos mientras te sientes en la familiaridad de tu hogar </p>
-        <h4 class="2xl:ml-48 xl:ml-28 lg:28 lg:ml-16 text-(--blue-light) 2xl:text-3xl xl:text-2xl lg:text-xl md:text-lg sm:text-md w-full text-start font-black ">Conoce nuestros mejores cuartos</h4>
+        <h1 class="2xl:text-7xl xl:text-6xl lg:text-6xl md:text-5xl sm:text-4xl xs:text-3xl text-2xl tracking-[15px] text-(--blue-light) font-semibold self-center w-full text-center mt-auto">parador del convento</h1>
+        <p class="2xl:text-3xl xl:text-2xl lg:text-2xl md:text-lg sm:text-lg text-md font-regular text-(--primary-light-hover) w-17/20 self-center text-center mb-auto">Ven y conoce guanajuato mientras te hospedas en el centro de la ciudad. Disfruta de todos los servicios que ofrecemos mientras te sientes en la familiaridad de tu hogar </p>
+        <h4 class="2xl:ml-48 xl:ml-28 lg:28 lg:ml-16 text-(--blue-light) 2xl:text-3xl xl:text-2xl lg:text-xl md:text-lg sm:text-md text-md w-full text-start font-black ">Conoce nuestros mejores cuartos</h4>
 
         <!--Component for the room cards-->
         
@@ -26,15 +26,15 @@
     </section>      
     <!--SECTION FOR THE HOW TO BOOK ROOM-->
     <section class=" h-[90vh] bg-(--primary-light) flex flex-col w-full 2xl:px-28 xl:px-22 text-(--blue-normal) 2xl:gap-8 my-32">
-        <h2 class="self-center text-(--blue-dark) title_responsive text-center">Como reservar</h2>
-        <h4 class="self-center 2xl:w-6/10 text-center 2xl:text-2xl xl:text-xl">Este es el proceso por el cual puedes reservar un cuarto por nosotros, es sencillo y rapido</h4>
+        <h2 class="self-center text-(--blue-dark) text-center" :class="titleClass">Como reservar</h2>
+        <h4 class="self-center 2xl:w-6/10 text-center" :class="subtitleClass">Este es el proceso por el cual puedes reservar un cuarto por nosotros, es sencillo y rapido</h4>
         <div class="h-[50vh] w-full flex justify-around flex-nowrap gap-2 mb-auto">
             <book-process v-for="instruction, index in instructions" :key="index" :instruction="instruction" :number="index+1"/>
         </div>
         <article class="h-min flex 2xl:gap-28 xl:gap-20 lg:gap-16 justify-center  items-end">
-            <p class="h-min align-bottom"><Icon name="material-symbols:perm-phone-msg" class="mr-2 2xl:text-5xl xl:text-4xl"/><span class="h-full align-top 2xl:text-xl xl:text-lg font-bold">473-110-1235</span></p>
-            <p class="h-min align-bottom"><Icon name="material-symbols:mail" class="mr-2 2xl:text-5xl xl:text-4xl"/><span class="h-full align-top 2xl:text-xl xl:text-lg font-bold">paradordelconvento@gmail.com</span></p>
-            <button class="bg-(--primary-normal) p-4 px-8 rounded-3xl text-(--blue-light) 2xl:text-xl xl:text-lg"><a href="#contact">Contacto</a></button>
+            <p class="h-min align-bottom"><Icon name="material-symbols:perm-phone-msg" class="mr-2 2xl:text-5xl xl:text-4xl"/><span class="h-full align-top  font-bold" :class="subtitleClass">473-110-1235</span></p>
+            <p class="h-min align-bottom"><Icon name="material-symbols:mail" class="mr-2 2xl:text-5xl xl:text-4xl"/><span class="h-full align-top  font-bold" :class="subtitleClass">paradordelconvento@gmail.com</span></p>
+            <button class="bg-(--primary-normal) p-4 px-8 rounded-3xl text-(--blue-light) " :class="subtitleClass"><a href="#contact">Contacto</a></button>
         </article>
      
     </section>
@@ -42,7 +42,7 @@
     <location-section/>
  <!--SECTION FOR THE ROOMS-->
     <section class="relative w-full bg-(--blue-dark) 2xl:h-[118vh] xl:h-[115vh] py-20">
-        <h2 class="2xl:text-7xl xl:text-5xl font-black text-(--primary-light-active) w-full text-center">Habitaciones</h2>
+        <h2 class=" font-black text-(--primary-light-active) w-full text-center" :class="titleClass">Habitaciones</h2>
         <h3 class=" whitespace-nowrap text-[9vw] font-bold text-(--blue-light)/60 z-0 select-none w-full">
         Parador del convento
         </h3>
@@ -58,21 +58,22 @@
 
     <!--SECTION FOR THE SERVICES-->
     <section class="w-full h-[75vh] my-10 p-20 flex flex-col justify-between mb-48 mt-24">
-       <h3 class=" 2xl:text-6xl xl:text-5xl max-w-[55vw] font-bold">Servicios que incluye su estancia</h3>
+       <h3 class="max-w-[55vw] font-bold" :class="titleClass">Servicios que incluye su estancia</h3>
        <div class="h-1/2 w-full flex justify-between gap-10 flex-nowrap" >
         <article
         v-for="service in services" :key="service.title"
         class="w-1/3 max-w-[25%] flex flex-col align-center"
+        
         >
         <Icon :name="service.icon" style="color: var(--blue-normal); height: 100px; width:150px; font-weight: 900;" />
-        <h4 class="2xl:text-xl xl:text-lg text-(--blue-dark) font-bold">{{ service.title }}</h4>
-        <p class="2xl:text-lg xl:text-md  font-semibold">{{ service.description }}</p>
+        <h4 class="text-(--blue-dark) font-bold" :class="subtitleClass">{{ service.title }}</h4>
+        <p class=" font-semibold" :class="textClass">{{ service.description }}</p>
     </article>
        </div>
     </section>
     <!--PHOTO GALLERY SECTION-->
     <section id="photoGallery" class="w-full h-[100vh] 2xl:p-10 xl:p-8 lg:p-6 md:p-4 xs:p-2 mb-48">
-        <h3 class="w-full 2xl:text-6xl xl:text-4xl text-center font-black">Explora el encanto del parador</h3>
+        <h3 class="w-full  text-center font-black" :class="titleClass">Explora el encanto del parador</h3>
         <PhotoGallery/>
     </section>
     <!--Section for the contact form-->
@@ -92,6 +93,8 @@
 import ContactForm from '~/components/ContactForm.vue';
 import FeatureRoomsCards from '~/components/FeatureRoomsCards.vue';
 import PhotoGallery from '~/components/PhotoGallery.vue';
+
+import { textClass, titleClass, subtitleClass } from '~/utils/getClasses';
 const featuredRooms = ref(null)
 onMounted(()=>{
 featuredRooms.value=getFeaturedRooms()
@@ -202,4 +205,6 @@ const services = [
         description:'La estancia por noche incluye un lugar de estacionamiento por cuarto, este finaliza a mediodia cuando vence el cuarto'
     }
 ]
+
+
 </script>
