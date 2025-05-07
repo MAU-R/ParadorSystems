@@ -34,22 +34,21 @@
    <div class="w-full flex justify-end align-center gap-4 items-center">
       <button
         :disabled="page === step"
-        class=" rounded-full h-max hover:bg-primary-light-active disabled:opacity-50"
+        class="p-1 cursos-pointer rounded-full h-min hover:bg-primary-light-active disabled:opacity-50"
         @click="prev"
       >
-        <Icon name="material-symbols:chevron-left" class="mt-auto" style="height:30px; width:30px;"/>
+        <Icon name="material-symbols:chevron-left" class="mt-auto cursor-pointer" style="height:30px; width:30px;"/>
       </button>
 
-      <span class="align-center h-min text-center" :class="subtitleClass">
+      <span class="align-center text-center" :class="subtitleClass">
         {{page-step>total ?`${page-step+1}`:`${page-step+1} - ${page>total?total:page}` }} de {{ total }}
       </span>
-      <p>{{ step }} wtf {{ page }} wtf   </p>
       <button
-        :disabled="page-step > total"
-        class="rounded-full h-max hover:bg-primary-light-active disabled:opacity-50"
+        :disabled="page >= total"
+        class="p-1  rounded-full hover:bg-primary-light-active disabled:opacity-50"
         @click="next"
       >
-        <Icon name="material-symbols:chevron-right" class="mt-auto"  style="height:30px; width:30px;"/>
+        <Icon name="material-symbols:chevron-right" class="mt-auto cursor-pointer"  style="height:30px; width:30px;"/>
       </button>
     </div>
     </section>
@@ -58,15 +57,20 @@
 
 <script setup>
 import { textClass, titleClass, subtitleClass } from '~/utils/getClasses';
-import { getRegularRooms } from '~/utils/getRooms.js';
+
 
 import { useWindowSize } from '@vueuse/core'
-const regularRooms=ref(getRegularRooms())
+const {rooms} = defineProps({
+  rooms:{
+    type: Object,
+    required: true
+  }
+})
 // Estado del paginador
 
-const total = regularRooms.value.length
+const total = rooms.length
 const paginationRooms=computed(()=>{
-    return regularRooms.value.slice(page.value-step.value, page.value)
+    return rooms.slice(page.value-step.value, page.value)
 })
 // Funciones next/prev
 const { width } = useWindowSize()

@@ -22,15 +22,23 @@
       <h4 class="text-(--blue-normal)/80 w-full text-center" :class="subtitleClass">Habitaciones con 2 camas matrimoniales y un baño</h4>
       <div class="w-full h-full p-8">
 
-        <RoomPaginatorRoomSection/>
+        <RoomPaginatorRoomSection :rooms="regularRooms"/>
       </div>
+    </section>
+    <section class="h-[100vh] max-h-[850px] w-full my-32">
+      <h2 class="w-full text-center" :class="titleClass" >Habitacion alternativa</h2>
+      <h4 class="text-(--blue-normal)/80 w-full text-center" :class="subtitleClass">Habitaciones variadas con diferentes distribuciones</h4>
+      <div class="w-full h-full p-8">
 
+        <RoomPaginatorRoomSection :rooms="alternativeRooms"/>
+      </div>
     </section>
   </div>
 
 </template>
 
 <script setup>
-
-
+import { getRegularRooms, getAlternativeRooms } from '~/utils/getRooms.js';
+const regularRooms=getRegularRooms()
+const alternativeRooms = getAlternativeRooms()
 </script>

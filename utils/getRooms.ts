@@ -3,9 +3,9 @@ export const ROOMS_TYPES={
     KING_SIZE:'one_king',
     REGULAR:'regular',
     SMALL:'one_quinn',
-   mEDIUM:'one_individual_two_quinn',
+    MEDIUM:'one_individual_two_quinn',
     BIG:'trhee_quinn',
-    SUIT:'suit_room     '
+    SUIT:'suit_room'
 
 }
 
@@ -67,7 +67,70 @@ const rooms = [
     { id: 49, title: 'Habitación de dos matrimoniales', number: 305, description: 'Con la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotel', featured: false, type: ROOMS_TYPES.REGULAR, price: 1500 },
     { id: 50, title: 'Habitación de dos matrimoniales', number: 306, description: 'Con la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotel', featured: false, type: ROOMS_TYPES.REGULAR, price: 1500 },
     { id: 51, title: 'Habitación de dos matrimoniales', number: 307, description: 'Con la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotel', featured: false, type: ROOMS_TYPES.REGULAR, price: 1500 },
-    { id: 52, title: 'Habitación de dos matrimoniales', number: 308, description: 'Con la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotel', featured: false, type: ROOMS_TYPES.REGULAR, price: 1500 }
+    { id: 52, title: 'Habitación de dos matrimoniales', number: 308, description: 'Con la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotel', featured: false, type: ROOMS_TYPES.REGULAR, price: 1500 },
+    {
+        id: 53,
+        title: 'Habitación de una cama king size',
+        number: 309,
+        description: 'Amplia habitación con cama king size ideal para una estancia cómoda y elegante.',
+        featured: false,
+        type: ROOMS_TYPES.BIG,
+        price: 1600
+      },
+      {
+        id: 54,
+        title: 'Suite con cama king size',
+        number: 310,
+        description: 'Lujosa suite con cama king size, sala de estar privada y vistas panorámicas de la ciudad.',
+        featured: false,
+        type: ROOMS_TYPES.SUIT,
+        price: 2500
+      },
+      {
+        id: 55,
+        title: 'Habitación de una cama matrimonial',
+        number: 311,
+        description: 'Cómoda habitación con una cama matrimonial, perfecta para parejas o viajeros solos.',
+        featured: false,
+        type: ROOMS_TYPES.SMALL,
+        price: 1400
+      },
+      {
+        id: 56,
+        title: 'Habitación de una cama matrimonial',
+        number: 312,
+        description: 'Cómoda habitación con una cama matrimonial, perfecta para parejas o viajeros solos.',
+        featured: false,
+        type: ROOMS_TYPES.SMALL,
+        price: 1400
+      },
+      {
+        id: 57,
+        title: 'Habitación de una cama matrimonial',
+        number: 313,
+        description: 'Cómoda habitación con una cama matrimonial, perfecta para parejas o viajeros solos.',
+        featured: false,
+        type: ROOMS_TYPES.SMALL,
+        price: 1400
+      },
+      {
+        id: 58,
+        title: 'Habitación con tres camas matrimoniales',
+        number: 314,
+        description: 'Ideal para grupos o familias grandes, esta habitación cuenta con tres camas matrimoniales y espacio amplio.',
+        featured: false,
+        type: ROOMS_TYPES.BIG,
+        price: 2800
+      },
+      {
+        id: 59,
+        title: 'Habitación con dos camas matrimoniales y una individual',
+        number: 315,
+        description: 'Confortable habitación familiar equipada con dos camas matrimoniales y una cama individual.',
+        featured: false,
+        type: ROOMS_TYPES.MEDIUM,
+        price: 2600
+      }
 ]
 
 const services = [
@@ -155,19 +218,6 @@ const serviceOnRoom = [
     }
 ]
 
-const base64Image = [
-    {
-        id:1,
-        description: 'Photo of the room 1',
-        roomId:1
-    },
-    {
-        id:2
-    },
-    {
-        id:3
-    }
-]
 
 
 const getRoomServices = (roomId: number) => {
@@ -212,8 +262,7 @@ export const getFeaturedRooms = () => {
         .filter(room => room.featured === true)
         .map(room => ({
             ...room,
-            services: getRoomServices(room.id),
-            images: base64Image.filter(image => image.roomId === room.id)
+            services: getRoomServices(room.id)
         }));
     return roomWithAll;
 }
@@ -230,6 +279,17 @@ export const getRegularRooms=()=>{
         return {
             ...room,
             services:regularServices
+        }
+    })
+}
+
+export const getAlternativeRooms=()=>{
+    
+    const regularRooms= rooms.filter(room => room.type!==ROOMS_TYPES.REGULAR && !room.featured)
+    return regularRooms.map(room =>{
+        return {
+            ...room,
+            services: getRoomServices(room.id)
         }
     })
 }
