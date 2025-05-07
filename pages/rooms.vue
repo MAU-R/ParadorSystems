@@ -17,20 +17,26 @@
       </div>
     </section>
 
-    <section class="h-[100vh] max-h-[850px] w-full my-32">
+    <section class="h-[100vh] max-h-[850px] w-full my-52 ">
       <h2 class="w-full text-center" :class="titleClass" >Habitacion regular</h2>
       <h4 class="text-(--blue-normal)/80 w-full text-center" :class="subtitleClass">Habitaciones con 2 camas matrimoniales y un baño</h4>
-      <div class="w-full h-full p-8">
+      <div class="w-full h-full p-8 mb-14">
 
         <RoomPaginatorRoomSection :rooms="regularRooms"/>
       </div>
     </section>
-    <section class="h-[100vh] max-h-[850px] w-full my-32">
+    <section class="h-[100vh] max-h-[850px] w-full my-52">
       <h2 class="w-full text-center" :class="titleClass" >Habitacion alternativa</h2>
       <h4 class="text-(--blue-normal)/80 w-full text-center" :class="subtitleClass">Habitaciones variadas con diferentes distribuciones</h4>
-      <div class="w-full h-full p-8">
+      <div class="w-full h-full p-8 mb-14">
 
         <RoomPaginatorRoomSection :rooms="alternativeRooms"/>
+      </div>
+    </section>
+    <section>
+      <div class="text-center w-full p-8 bg-(--blue-dark)">
+        <h2 :class="titleClass" class="text-(--blue-light)"  >suites</h2>
+        <h4 class="text-(--blue-light-active)" :class="subtitleClass"> Conoce las suites que tenemos para ofrecerte. Disfruta de la estancia mas comoda con las mejores vistas de guanajuato</h4>
       </div>
     </section>
   </div>
