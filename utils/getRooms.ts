@@ -83,7 +83,7 @@ const rooms = [
         number: 310,
         description: 'Lujosa suite con cama king size, sala de estar privada y vistas panorámicas de la ciudad.',
         featured: false,
-        type: ROOMS_TYPES.SUIT,
+        type: ROOMS_TYPES.KING_SIZE,
         price: 2500
       },
       {
@@ -268,8 +268,14 @@ export const getFeaturedRooms = () => {
 }
 
 
-export const getSuites = { 
-
+export const getSuites = ()=> { 
+    const roomWithAll = rooms
+        .filter(room => room.type === ROOMS_TYPES.SUIT)
+        .map(room => ({
+            ...room,
+            services: getRoomServices(room.id)
+        }));
+    return roomWithAll;
 }
 
 export const getRegularRooms=()=>{

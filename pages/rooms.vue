@@ -39,12 +39,15 @@
         <h4 class="text-(--blue-light-active)" :class="subtitleClass"> Conoce las suites que tenemos para ofrecerte. Disfruta de la estancia mas comoda con las mejores vistas de guanajuato</h4>
       </div>
     </section>
+    <suit-room v-for="suitRoom in suitRooms" :key="suitRoom.id" :suit="suitRoom" :is-dark="suitRoom.id %=2 "/>
   </div>
 
 </template>
 
 <script setup>
-import { getRegularRooms, getAlternativeRooms } from '~/utils/getRooms.js';
+import { getRegularRooms, getAlternativeRooms, getSuites } from '~/utils/getRooms.js';
+
 const regularRooms=getRegularRooms()
 const alternativeRooms = getAlternativeRooms()
+const suitRooms = getSuites()
 </script>
