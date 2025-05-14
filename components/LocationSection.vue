@@ -1,5 +1,6 @@
 <template>
     <section
+    id="ubicacion"
       class="relative flex flex-col items-center justify-start text-center h-[100vh] px-[var(--margin-xxlarge)] mb-48"
     >
       <!-- Background ::before replacement -->
@@ -13,9 +14,10 @@
         "
       />
   
-      <div class="flex flex-col items-center justify-center text-[var(--color-background-text)] w-max">
+      <div class="flex mt-12 flex-col items-center justify-center text-[var(--color-background-text)] w-max">
         <h2
-          class="2xl:text-6xl xl:text-4xl mt-5 text-(--blue-light) z-50 font-bold p-4"
+          class=" mt-10 text-(--blue-light) z-50 font-bold p-4"
+          :class="titleClass"
         >
           Ubicacion centrica con la mejor vista
         </h2>
@@ -23,9 +25,9 @@
       </div>
   
       <div
-        class=" max-w-[1350px] rounded-2xl flex flex-col gap-4 p-6 justify-between align-center mt-[5vh] bg-(--primary-light) w-[90vw] h-[72vh] drop-shadow-lg mb-20"
+        class=" max-w-[1350px] rounded-2xl flex flex-col gap-4 p-6 justify-between align-center mt-[12vh] bg-(--primary-light) w-[90vw] h-[72vh] drop-shadow-lg mb-20"
       >
-        <h2 class="text-(--blue-normal) 2xl:text-4xl xl:text-3xl font-semibold ">
+        <h2 class="text-(--blue-normal)  font-semibold " :class="subtitleClass">
           Ubicacion
         </h2>
         <div class="  min-h-[60vh] w-[100%] px-20 mb-15">

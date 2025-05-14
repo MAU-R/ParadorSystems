@@ -3,20 +3,20 @@
     <article class="w-full h-[50vh] " :class="isDark? 'bg-(--blue-normal)' : 'bg-(--primary-light-hover)' ">
         <div
         v-if="isDark"
-        class="w-full flex gap-12 flex-nowrap p-8 h-full max-w-[1350px] ml-auto mr-auto"
+        class="w-full flex gap-12 flex-nowrap p-8 h-full max-w-[1500px] ml-auto mr-auto"
         >
         <div class="h-full w-33/100">
             <img
              :src="suit.images?.[0] ?? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6j5ENNjz5ZpYWVHGUsS_tWb9M9De6FWAibA&s'"
              alt="FOTO DEL CUARTO"
              class="w-full rounded-xl rounded-b-none h-7/10 mt-auto">
-            <p class="w-full h-1/10 p-2 align-center text-(--blue-light) bg-(--blue-dark) rounded-lg rounded-t-none hover:bg-(--blue-darker) text-center ">
+            <p class="w-full h-1/10 p-2 align-center text-(--blue-light) bg-(--blue-dark) rounded-lg rounded-t-none hover:bg-(--blue-darker) text-center transition-all">
                 Ver mas fotos
             </p>
         </div>
-        <div class="w-43/100 flex flex-col justify-around align-center h-full ">
-            <h4 :class="subtitleClass" class="text-(--blue-light)">{{ suit.title }}</h4>
-            <p :class="textClass" class="text-(--blue-light-hover) ">{{ suit.description }}</p>
+        <div class="w-43/100 h-full flex flex-col justify-center  align-center ">
+            <h4 :class="subtitleClass" class="text-(--blue-light) h-[20%]">{{ suit.title }}</h4>
+            <p :class="textClass" class="text-(--blue-light-hover) ">{{ suit.detail }}</p>
         </div >
         <div class="w-23/100 flex gap-5 mt-auto mb-auto columns-3 overflow-hidden flex-wrap h-min">
             <div
@@ -30,7 +30,7 @@
         </div>
         <div
         v-else
-        class="w-full flex gap-12 flex-nowrap p-8 h-full max-w-[1350px] ml-auto mr-auto"
+        class="w-full flex gap-12 flex-nowrap p-8 h-full max-w-[1500px] ml-auto mr-auto"
         >
 
         <div class="w-23/100 flex gap-5 mt-auto mb-auto columns-3 overflow-hidden flex-wrap h-min">
@@ -43,16 +43,16 @@
             </div>
         </div>
 
-        <div class="w-43/100 flex flex-col justify-around align-center h-full ">
-            <h4 :class="subtitleClass" class="text-(--blue-dark)">{{ suit.title }}</h4>
-            <p :class="textClass" class="text-(--blue-normal) ">{{ suit.description }}</p>
+        <div class="w-43/100 flex flex-col justify-center align-center h-full ">
+            <h4 :class="subtitleClass" class="text-(--blue-dark) h-[20%] text-end">{{ suit.title }}</h4>
+            <p :class="textClass" class="text-(--blue-normal) text-end">{{ suit.detail }}</p>
         </div >
         <div class="h-full w-33/100">
             <img
              :src="suit.images?.[0] ?? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6j5ENNjz5ZpYWVHGUsS_tWb9M9De6FWAibA&s'"
              alt="FOTO DEL CUARTO"
              class="w-full rounded-xl rounded-b-none h-7/10 mt-auto">
-            <p class="w-full h-1/10 p-2 align-center text-(--blue-dark) bg-(--primary-light) rounded-lg rounded-t-none hover:bg-(--primary-light-active) text-center ">
+            <p class="w-full h-1/10 p-2 align-center text-(--blue-dark) bg-(--primary-light-active) rounded-lg rounded-t-none hover:bg-(--primary-normal)/80 text-center transition-all ">
                 Ver mas fotos
             </p>
         </div>

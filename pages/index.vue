@@ -10,8 +10,8 @@
         <header-links :show-minimal="false" class="text-(--primary-light-hover)"/>
         <!--Component for the header links-->
 
-        <h1 class="2xl:text-7xl xl:text-6xl lg:text-6xl md:text-5xl sm:text-4xl xs:text-3xl text-2xl tracking-[15px] text-(--blue-light) font-semibold self-center w-full text-center mt-auto">parador del convento</h1>
-        <p class="2xl:text-3xl xl:text-2xl lg:text-2xl md:text-lg sm:text-lg text-md font-regular text-(--primary-light-hover) w-17/20 self-center text-center mb-auto">Ven y conoce guanajuato mientras te hospedas en el centro de la ciudad. Disfruta de todos los servicios que ofrecemos mientras te sientes en la familiaridad de tu hogar </p>
+        <h1 class="tracking-[15px] text-(--blue-light) font-semibold self-center w-full text-center mt-auto" :class="heroTitleClass">parador del convento</h1>
+        <p :class="subtitleClass"  class="font-regular text-(--primary-light-hover) w-17/20 self-center text-center mb-auto">Ven y conoce guanajuato mientras te hospedas en el centro de la ciudad. Disfruta de todos los servicios que ofrecemos mientras te sientes en la familiaridad de tu hogar </p>
         <h4 class="2xl:ml-48 xl:ml-28 lg:28 lg:ml-16 text-(--blue-light) 2xl:text-3xl xl:text-2xl lg:text-xl md:text-lg sm:text-md text-md w-full text-start font-black ">Conoce nuestros mejores cuartos</h4>
 
         <!--Component for the room cards-->
@@ -27,13 +27,13 @@
     <!--SECTION FOR THE HOW TO BOOK ROOM-->
     <section class=" h-[90vh] bg-(--primary-light) flex flex-col w-full 2xl:px-28 xl:px-22 text-(--blue-normal) 2xl:gap-8 my-32">
         <h2 class="self-center text-(--blue-dark) text-center" :class="titleClass">Como reservar</h2>
-        <h4 class="self-center 2xl:w-6/10 text-center" :class="subtitleClass">Este es el proceso por el cual puedes reservar un cuarto por nosotros, es sencillo y rapido</h4>
+        <h4 class="self-center 2xl:w-6/10 text-center text-(--blue-normal)/80" :class="sectionSubtitle">Este es el proceso por el cual puedes reservar un cuarto por nosotros, es sencillo y rapido</h4>
         <div class="h-[50vh] w-full flex justify-around flex-nowrap gap-2 mb-auto">
             <book-process v-for="instruction, index in instructions" :key="index" :instruction="instruction" :number="index+1"/>
         </div>
         <article class="h-min flex 2xl:gap-28 xl:gap-20 lg:gap-16 justify-center  items-end">
-            <p class="h-min align-bottom"><Icon name="material-symbols:perm-phone-msg" class="mr-2 2xl:text-5xl xl:text-4xl"/><span class="h-full align-top  font-bold" :class="subtitleClass">473-110-1235</span></p>
-            <p class="h-min align-bottom"><Icon name="material-symbols:mail" class="mr-2 2xl:text-5xl xl:text-4xl"/><span class="h-full align-top  font-bold" :class="subtitleClass">paradordelconvento@gmail.com</span></p>
+            <p class="h-min align-bottom"><Icon name="material-symbols:perm-phone-msg" class="mr-2 2xl:text-5xl xl:text-4xl"/><span class="h-full align-top  font-bold" :class="sectionSubtitle">473-110-1235</span></p>
+            <p class="h-min align-bottom"><Icon name="material-symbols:mail" class="mr-2 2xl:text-5xl xl:text-4xl"/><span class="h-full align-top  font-bold" :class="sectionSubtitle">paradordelconvento@gmail.com</span></p>
             <button class="bg-(--primary-normal) p-4 px-8 rounded-3xl text-(--blue-light) " :class="subtitleClass"><a href="#contact">Contacto</a></button>
         </article>
      
@@ -41,12 +41,12 @@
     <!--LOCATION SECTION-->
     <location-section/>
  <!--SECTION FOR THE ROOMS-->
-    <section class="relative w-full bg-(--blue-dark) 2xl:h-[118vh] xl:h-[115vh] py-20">
+    <section class="relative w-full bg-(--blue-dark) 2xl:h-[130vh] xl:h-[135vh] py-20">
         <h2 class=" font-black text-(--primary-light-active) w-full text-center" :class="titleClass">Habitaciones</h2>
         <h3 class=" whitespace-nowrap text-[9vw] font-bold text-(--blue-light)/60 z-0 select-none w-full">
         Parador del convento
         </h3>
-        <div class="translate-x-0 2xl:-translate-y-[9vh] xl:-translate-y-[6vh] md:-translate-y-[4vh] lg:-translate-y-[6vh] max-h-[80vh] grid grid-cols-6 gap-2 h-[80vh] grid-rows-2 z-100 max-w-[125vh] ml-auto mr-auto px-2">
+        <div class="translate-x-0 2xl:-translate-y-[9vh] xl:-translate-y-[6vh] md:-translate-y-[4vh] lg:-translate-y-[6vh] max-h-[90vh] grid grid-cols-6 gap-2 h-[90vh] grid-rows-2 z-100 max-w-[125vh] ml-auto mr-auto px-2">
             <room-type-card
             v-for="type in roomTypes" :key="type.title"
             :class="type.optionalClass"
@@ -57,7 +57,7 @@
     </section>
 
     <!--SECTION FOR THE SERVICES-->
-    <section class="w-full h-[75vh] my-10 p-20 flex flex-col justify-between mb-48 mt-24">
+    <section id="servicios" class="w-full h-[75vh] my-10 p-20 flex flex-col justify-between mb-48 mt-24">
        <h3 class="max-w-[55vw] font-bold" :class="titleClass">Servicios que incluye su estancia</h3>
        <div class="h-1/2 w-full flex justify-between gap-10 flex-nowrap" >
         <article
@@ -125,7 +125,8 @@ const roomTypes = [
         title:'Suites',
         isBanner:true,
         optionalClass: 'bg-(--primary-light-active) col-span-4',
-        description:'Explora nuestras suites y encuentra una estancia de en sueño'
+        description:'Explora nuestras suites y encuentra una estancia de en sueño',
+        type:'/rooms#suites'
     },
     {
         title:'Habitacion de una matrimonial',
@@ -182,6 +183,7 @@ const roomTypes = [
     {
         title:'Habitaciones',
         isBanner:true,
+        type:'/rooms#regular',
         optionalClass: 'bg-(--primary-light-active) col-span-2',
         description:'Explora todas las habitaciones que tenemos para ofrecerte',
         img:'https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?cs=srgb&dl=pexels-jvdm-1457842.jpg&fm=jpg'

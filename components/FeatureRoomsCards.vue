@@ -17,7 +17,7 @@
             </div>
             
         </div>
-        <span class="self-start font-bold text-(--blue-light) text-md">{{ `$${room.price}/noche` }}</span>
+        <span class="self-start font-bold text-(--blue-light) text-md" :class="smallTitle">{{ `$${room.price}/noche` }}</span>
     </div>
     </div>
 </template>

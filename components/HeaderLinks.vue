@@ -29,7 +29,7 @@ const {showMinimal} = defineProps({
 const links = showMinimal ?[
     {
         name: 'Regresar',
-        route: '/index',
+        route: '/',
         action: 'link'
     },
     {
@@ -47,7 +47,7 @@ const links = showMinimal ?[
 :[
     {
         name: 'Cuartos',
-        route: '#cuartos',
+        route: '/rooms',
         action: 'link'
     },
     {

@@ -1,5 +1,5 @@
 <template>
-    <section class="w-full h-full flex flex-col justify-between no-wrap"> 
+    <section class="w-full h-full flex flex-col justify-between no-wrap mt-10 2xl:mt-20 xl:mt-18 lg:mt-15 max-h-[65vh]"> 
         <article class="rounded-4xl flex w-full md:w-1/2 xl:w-1/3 justify-around align-center p-2 bg-(--primary-light-hover)">
                 <button class="mt-auto mb-auto">
                 <Icon

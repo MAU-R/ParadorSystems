@@ -1,5 +1,6 @@
 <template>
     <section
+    id="contacto"
       class="relative flex flex-col items-center justify-start text-center h-[110vh] px-[var(--margin-xxlarge)]"
     >
       <!-- Background ::before replacement -->
@@ -21,70 +22,65 @@
           Formulario de contacto
         </h2>
         <div class="  min-h-[60vh] w-[100%] px-20 mb-15">
-          <div class=" w-full h-full flex items-center justify-center p-4">
-    <form @submit.prevent="submitForm" class="w-full ">
-      <!-- Fieldset con estilos Tailwind -->
-      <fieldset class="p-6 rounded-xl w-full h-full shadow-md border-solid border-2 border-(--primary-light-hover) space-y-6">
-        <!-- Leyenda del fieldset -->
-
-        <!-- Campo Nombre -->
-        <Field.Root class="text-start">
-          <Field.Label class="block text-sm font-semibold text-(--blue-normal)/70 mb-1">
-            Nombre completo
-          </Field.Label>
-          <Field.Input
-            v-model="form.name"
+      <form class="max-w-3xl mx-auto space-y-6 text-left text-[#1B365D] h-full flex flex-col justify-center">
+      <!-- Fila: Nombre y Teléfono -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="flex flex-col">
+          <label for="nombre" class="text-sm mb-1" :class="textClass">Nombre</label>
+          <input
+            id="nombre"
             type="text"
-            class="w-full px-4 py-2 border-2 border-(--blue-light-hover) rounded-lg  focus:border-(--blue-darker)/50 transition"
-            placeholder="Ej: Juan Pérez"
-          />
-          <Field.ErrorText class="text-red-500 text-xs mt-1">
-            {{ errors.name }}
-          </Field.ErrorText>
-        </Field.Root>
-
-        <!-- Campo Email -->
-        <Field.Root class="text-start">
-          <Field.Label class="block text-sm font-semibold text-(--blue-normal)/70 mb-1">
-            Correo electrónico
-          </Field.Label>
-          <Field.Input
-            v-model="form.email"
-            type="email"
-            class="w-full px-4 py-2 border-2 border-(--blue-light-hover) rounded-lg  focus:border-(--blue-darker)/50 transition"
-            placeholder="ejemplo@email.com"
-          />
-          <Field.HelperText class="text-gray-500 text-xs self-start mt-1">
-            Nunca compartiremos tu email
-          </Field.HelperText>
-          <Field.ErrorText class="text-red-500 text-xs mt-1">
-            {{ errors.email }}
-          </Field.ErrorText>
-        </Field.Root>
-
-        <!-- Campo Teléfono -->
-        <Field.Root class="text-start">
-          <Field.Label class="block text-sm font-semibold text-(--blue-normal)/70 mb-1">
-            Teléfono
-          </Field.Label>
-          <Field.Input
-            v-model="form.phone"
+            placeholder="Tu nombre"
+            class="px-4 py-2  border-solid border-1 rounded-xl border-(--blue-normal)/20 focus:outline-none focus:ring-2 focus:ring-[#1B365D]"
+          >
+        </div>
+        <div class="flex flex-col">
+          <label for="telefono" class="text-sm mb-1" :class="textClass">Número de teléfono</label>
+          <input
+            id="telefono"
             type="tel"
-            class="w-full px-4 py-2 border-2 border-(--blue-light-hover) rounded-lg  focus:border-(--primary-light-active) transition"
-            placeholder="+51 987 654 321"
-          />
-        </Field.Root>
+            placeholder="Tu número"
+            class="px-4 py-2 border-solid border-1 rounded-xl border-(--blue-normal)/20 focus:outline-none focus:ring-2 focus:ring-[#1B365D]"
+          >
+        </div>
+      </div>
 
-        <!-- Botón de submit -->
+      <!-- Selector de cuarto -->
+      <div class="flex flex-col">
+        <label for="nombre" class="text-sm mb-1" :class="textClass">Correo electronico</label>
+          <input
+            id="nombre"
+            type="text"
+            placeholder="Tu correo electronico"
+            class="px-4 py-2  border-solid border-1 rounded-xl border-(--blue-normal)/20 focus:outline-none focus:ring-2 focus:ring-[#1B365D]"
+          >
+      </div>
+      <div class="flex flex-col">
+        <label for="cuarto" class="text-sm mb-1">Selecciona el cuarto</label>
+        <select
+          id="cuarto"
+          class="px-4 py-2  border-solid border-1 rounded-xl border-(--blue-normal)/20 focus:outline-none focus:ring-2 focus:ring-[#1B365D]"
+        >
+          <option value="">Elige una opción</option>
+          <option value="estandar">Cuarto Estándar</option>
+          <option value="deluxe">Cuarto Deluxe</option>
+          <option value="suite">Suite</option>
+        </select>
+      </div>
+      <!-- Texto informativo -->
+
+
+      <!-- Botón -->
+      <div class="text-center">
         <button
           type="submit"
-          class="w-full mt-6 bg-(--primary-normal) hover:bg-(--primary-normal-hover) text-white font-medium py-2 px-4 rounded-lg transition duration-200 shadow-md"
+          class="bg-[#b65630] text-white font-medium px-6 py-3 rounded-full hover:bg-[#a84d2b] transition"
         >
-          Enviar datos
+          Enviar mensaje
         </button>
-      </fieldset>
+      </div>
     </form>
-  </div>
+
         </div>
       </div>
     </section>

@@ -14,7 +14,8 @@ const rooms = [
         id: 1,
         title: 'Suit Pipila',
         number: null,
-        description: 'Con la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotel',
+        description:'Con la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotel ',
+        detail: 'Con la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotel Con la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotelCon la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotel',
         featured: true,
         price:1500,
         type: ROOMS_TYPES.SUIT
@@ -23,7 +24,8 @@ const rooms = [
         id: 2,
         title: 'Suit Pipila',
         number: null,
-        description: 'Con la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotel',
+        description:'Con la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotel',
+        detail: 'Con la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotel Con la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotel Con la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotel Con la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotel',
         featured: true,
         price:1500,
         type: ROOMS_TYPES.SUIT
@@ -32,7 +34,8 @@ const rooms = [
         id: 3,
         title: 'Suit Pipila',
         number: null,
-        description: 'Con la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotel',
+        description:'Con la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotel ',
+        detail: 'Con la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotel  Con la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotelCon la mejor vista del centro de la ciudad disfruta del moderno suite en la parte mas alta del hotel',
         featured: true,
         price:1500,
         type: ROOMS_TYPES.SUIT
