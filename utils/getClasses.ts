@@ -1,5 +1,5 @@
 
-export const heroTitleClass:string=' font-black 2xl:text-6xl xl:text-5xl lg:text-4xl md:text-2xl sm:text-xl xs:text-lg text-lg'
+export const heroTitleClass:string=' font-black 2xl:text-7xl xl:text-6xl lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl text-2xl'
 export const titleClass:string = 'font-black 2xl:text-5xl xl:text-4xl lg:text-2xl md:text-xl sm:text-lg xs:text-md text-md' 
 export const subtitleClass:string =' font-bold 2xl:text-3xl xl:text-2xl lg:text-xl md:text-lg sm:text-md xs:text-sm' 
 export const sectionSubtitle: string='font-semibold 2xl:text-2xl xl:text-xl lg:text-lg md:text-md sm:text-md xs:text-sm'

@@ -1,9 +1,9 @@
 <template>
    
     <div
-    class="roomCard h-full mb-5 sm:w-28/100 md:27/100 lg:15/100 xl:15/100 2xl:w-18/100 rounded-2xl overflow-hidden">
+    class="roomCard h-full md:mb-5 sm:w-28/100 md:27/100 lg:15/100 xl:15/100 2xl:w-18/100 rounded-2xl md:overflow-hidden">
     
-    <div class="p-1 w-full h-[calc(45%+5%)]"><div class="customImage w-full h-full rounded-2xl z-10 "/></div>
+    <div class="p-1 w-full h-[150px] md:h-[calc(45%+5%)]"><div class="customImage w-full h-full rounded-2xl z-10 "/></div>
     <div class="customBadge content w-full py-4 px-4  flex flex-col justify-between gap-1 rounded-2xl z-15 text-(--blue-light)">
         <h1 class="font-bold" :class="subtitleClass">{{ room.title }}</h1>
         <p class=" " :class="textClass">{{ room.description }}</p>
@@ -17,7 +17,7 @@
             </div>
             
         </div>
-        <span class="self-start font-bold text-(--blue-light) text-md" :class="smallTitle">{{ `$${room.price}/noche` }}</span>
+        <span class="self-start font-bold text-(--blue-light) text-md mt-2" :class="smallTitle">{{ `$${room.price}/noche` }}</span>
     </div>
     </div>
 </template>

@@ -4,19 +4,33 @@
 
         
     <!--SECTION FOR THE PRINCIPAL HEADER-->
-    <section class="flex justify-center w-full h-[100vh] px-10 pt-10 bg-[url(https://elotroenfoque.mx/wp-content/uploads/2023/10/turismo-gto-5.jpeg)] bg-cover overflow-x-hidden">
-       <div class="justify-self-center bg-(--blue-dark)/60 max-w-[1650px] w-full h-full rounded-4xl rounded-b-none border-solid border-6 border-(--blue-light)/40 p-10 md:p-5 sm:p-4 flex flex-col justify-between gap-10">
+    <section class="flex justify-center w-full h-[100vh] px-2 pt-4 md:px-10 md:pt-10 bg-[url(https://elotroenfoque.mx/wp-content/uploads/2023/10/turismo-gto-5.jpeg)] bg-cover overflow-x-hidden">
+       <div class="justify-self-center bg-(--blue-dark)/60 max-w-[1650px] w-full h-full rounded-4xl rounded-b-none border-solid border-6 border-(--blue-light)/40 p-6 md:!p-10 sm:p-8 flex flex-col justify-between gap-10 overflow-x-hidden">
         <!--Component for the header links-->
-        <header-links :show-minimal="false" class="text-(--primary-light-hover)"/>
+        <header-links :show-minimal="false" class="text-(--primary-light-hover) overflow-hidden  "/>
         <!--Component for the header links-->
 
-        <h1 class="tracking-[15px] text-(--blue-light) font-semibold self-center w-full text-center mt-auto" :class="heroTitleClass">parador del convento</h1>
-        <p :class="subtitleClass"  class="font-regular text-(--primary-light-hover) w-17/20 self-center text-center mb-auto">Ven y conoce guanajuato mientras te hospedas en el centro de la ciudad. Disfruta de todos los servicios que ofrecemos mientras te sientes en la familiaridad de tu hogar </p>
+        <h1 class="tracking-[12px] md:tracking-[15px] text-(--blue-light) font-semibold self-center w-full text-center mt-auto" :class="heroTitleClass">parador del convento</h1>
+        <p :class="subtitleClass"  class="font-regular text-(--primary-light-hover) w-[105%] mb:w-17/20 mb:self-center text-justify mb:text-center mb-auto -mx-4 ">Ven y conoce guanajuato mientras te hospedas en el centro de la ciudad. Disfruta de todos los servicios que ofrecemos mientras te sientes en la familiaridad de tu hogar </p>
         <h4 class="2xl:ml-48 xl:ml-28 lg:28 lg:ml-16 text-(--blue-light) 2xl:text-3xl xl:text-2xl lg:text-xl md:text-lg sm:text-md text-md w-full text-start font-black ">Conoce nuestros mejores cuartos</h4>
 
         <!--Component for the room cards-->
-        
-        <div class="flex gap-3 justify-center flex-1 max-h-[41vh]">
+        <div v-if="isMobile" class="w-[112%] -mx-5">
+            <Swiper
+                :slides-per-view="1.08"
+                :space-between="8"
+                class="md:hidden px-2"
+                >
+                <SwiperSlide
+                v-for="room in featuredRooms"
+                :key="room.id"
+                class="h-full"
+                >
+                <FeatureRoomsCards :room="room" class="h-full"/>
+                </SwiperSlide>
+            </Swiper>
+        </div>
+        <div v-else class="flex gap-3 justify-center flex-1 max-h-[41vh]">
             <FeatureRoomsCards v-for="room in featuredRooms" :key="room.id" :room="room" />
         </div>
            
@@ -46,7 +60,7 @@
         <h3 class=" whitespace-nowrap text-[9vw] font-bold text-(--blue-light)/60 z-0 select-none w-full">
         Parador del convento
         </h3>
-        <div class="translate-x-0 2xl:-translate-y-[9vh] xl:-translate-y-[6vh] md:-translate-y-[4vh] lg:-translate-y-[6vh] max-h-[90vh] grid grid-cols-6 gap-2 h-[90vh] grid-rows-2 z-100 max-w-[125vh] ml-auto mr-auto px-2">
+        <div class="translate-x-0 2xl:-translate-y-[9vh] xl:-translate-y-[6vh] md:-translate-y-[4vh] lg:-translate-y-[6vh] max-h-[90vh] grid grid-cols-6 gap-2 h-[90vh] grid-rows-2 z-100 max-w-[125vh] ml-auto mr-auto px-2 ">
             <room-type-card
             v-for="type in roomTypes" :key="type.title"
             :class="type.optionalClass"
@@ -93,8 +107,9 @@
 import ContactForm from '~/components/ContactForm.vue';
 import FeatureRoomsCards from '~/components/FeatureRoomsCards.vue';
 import PhotoGallery from '~/components/PhotoGallery.vue';
-
-import { textClass, titleClass, subtitleClass } from '~/utils/getClasses';
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import 'swiper/swiper-bundle.css'
+import {heroTitleClass, textClass, titleClass, subtitleClass } from '~/utils/getClasses';
 const featuredRooms = ref(null)
 onMounted(()=>{
 featuredRooms.value=getFeaturedRooms()
@@ -208,5 +223,8 @@ const services = [
     }
 ]
 
-
+const isMobile = ref(false)
+onMounted(() => {
+  isMobile.value = window.innerWidth < 640
+})
 </script>
