@@ -21,7 +21,7 @@
         >
           Ubicacion centrica con la mejor vista
         </h2>
-        <div class="w-full -translate-y-12 z-10 -translate-x-0 bg-(--blue-dark) 2xl:h-12 xl:h-8"/>
+        <div class=" w-full md:-translate-y-12 -translate-y-8 z-10 -translate-x-0 bg-(--blue-dark) 2xl:h-12 xl:h-8 h-8"/>
       </div>
   
       <div
@@ -30,7 +30,7 @@
         <h2 class="text-(--blue-normal)  font-semibold " :class="subtitleClass">
           Ubicacion
         </h2>
-        <div class="  min-h-[60vh] w-[100%] px-20 mb-15">
+        <div class=" min-h-[60vh] w-[100%] md:px-20 mb-15">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.3424594010326!2d-101.25430962572737!3d21.0189790881164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842b7405e2916d4d%3A0x1e2f1d44f2efbbc3!2sHotel%20Parador%20Del%20Convento!5e0!3m2!1ses-419!2smx!4v1725304160700!5m2!1ses-419!2smx"
             style="border:0; width: 100%; height: 100%"

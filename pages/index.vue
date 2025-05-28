@@ -10,8 +10,9 @@
         <header-links :show-minimal="false" class="text-(--primary-light-hover) overflow-hidden  "/>
         <!--Component for the header links-->
 
-        <h1 class="tracking-[12px] md:tracking-[15px] text-(--blue-light) font-semibold self-center w-full text-center mt-auto" :class="heroTitleClass">parador del convento</h1>
-        <p :class="subtitleClass"  class="font-regular text-(--primary-light-hover) w-[105%] mb:w-17/20 mb:self-center text-justify mb:text-center mb-auto -mx-4 ">Ven y conoce guanajuato mientras te hospedas en el centro de la ciudad. Disfruta de todos los servicios que ofrecemos mientras te sientes en la familiaridad de tu hogar </p>
+        <h1 class="tracking-[12px] md:tracking-[15px] text-(--blue-light) font-semibold self-center w-full text-center md:mt-auto" :class="heroTitleClass">parador del convento</h1>
+        <p :class="subtitleClass"  class="hidden md:block font-regular text-(--primary-light-hover) w-[105%] md:w-17/20 md:self-center text-justify md:text-center md:mb-auto -mx-4 ">Ven y conoce guanajuato mientras te hospedas en el centro de la ciudad. Disfruta de todos los servicios que ofrecemos mientras te sientes en la familiaridad de tu hogar </p>
+        <p :class="subtitleClass"  class="block md:hidden font-regular text-(--primary-light-hover) w-[105%] md:w-17/20 md:self-center text-justify md:text-center md:mb-auto -mx-4 ">Ven y conoce guanajuato mientras te hospedas en el centro de la ciudad. Disfruta de todos los servicios que ofrecemos</p>
         <h4 class="2xl:ml-48 xl:ml-28 lg:28 lg:ml-16 text-(--blue-light) 2xl:text-3xl xl:text-2xl lg:text-xl md:text-lg sm:text-md text-md w-full text-start font-black ">Conoce nuestros mejores cuartos</h4>
 
         <!--Component for the room cards-->
@@ -19,12 +20,12 @@
             <Swiper
                 :slides-per-view="1.08"
                 :space-between="8"
-                class="md:hidden px-2"
+                class="md:hidden px-2 h-min max-h-[42vh]"
                 >
                 <SwiperSlide
                 v-for="room in featuredRooms"
                 :key="room.id"
-                class="h-full"
+                class="h-min"
                 >
                 <FeatureRoomsCards :room="room" class="h-full"/>
                 </SwiperSlide>
@@ -39,16 +40,16 @@
        </div>
     </section>      
     <!--SECTION FOR THE HOW TO BOOK ROOM-->
-    <section class=" h-[90vh] bg-(--primary-light) flex flex-col w-full 2xl:px-28 xl:px-22 text-(--blue-normal) 2xl:gap-8 my-32">
+    <section class=" h-[105vh] md:h-[90vh] bg-(--primary-light) flex flex-col w-full 2xl:px-28 xl:px-22 text-(--blue-normal) 2xl:gap-8 my-32">
         <h2 class="self-center text-(--blue-dark) text-center" :class="titleClass">Como reservar</h2>
         <h4 class="self-center 2xl:w-6/10 text-center text-(--blue-normal)/80" :class="sectionSubtitle">Este es el proceso por el cual puedes reservar un cuarto por nosotros, es sencillo y rapido</h4>
-        <div class="h-[50vh] w-full flex justify-around flex-nowrap gap-2 mb-auto">
-            <book-process v-for="instruction, index in instructions" :key="index" :instruction="instruction" :number="index+1"/>
+        <div class="h-max md:h-[50vh] w-full flex md:justify-around flex-col md:flex-row flex-nowrap gap-2 mb-auto justify-between">
+            <book-process class="mb-8 md:mb-0 " v-for="instruction, index in instructions" :key="index" :instruction="instruction" :number="index+1" :mobile="isMobile"/>
         </div>
-        <article class="h-min flex 2xl:gap-28 xl:gap-20 lg:gap-16 justify-center  items-end">
-            <p class="h-min align-bottom"><Icon name="material-symbols:perm-phone-msg" class="mr-2 2xl:text-5xl xl:text-4xl"/><span class="h-full align-top  font-bold" :class="sectionSubtitle">473-110-1235</span></p>
-            <p class="h-min align-bottom"><Icon name="material-symbols:mail" class="mr-2 2xl:text-5xl xl:text-4xl"/><span class="h-full align-top  font-bold" :class="sectionSubtitle">paradordelconvento@gmail.com</span></p>
-            <button class="bg-(--primary-normal) p-4 px-8 rounded-3xl text-(--blue-light) " :class="subtitleClass"><a href="#contact">Contacto</a></button>
+        <article class="h-min flex flex-col md:flex-row 2xl:gap-28 xl:gap-20 lg:gap-16 justify-center  md:items-end px-14 md:px-0">
+            <p class="hidden md:block h-min align-bottom"><Icon name="material-symbols:perm-phone-msg" class="mr-2 2xl:text-5xl xl:text-4xl"/><span class="h-full align-top  font-bold" :class="sectionSubtitle">473-110-1235</span></p>
+            <p class="hidden md:block h-min align-bottom"><Icon name="material-symbols:mail" class="mr-2 2xl:text-5xl xl:text-4xl"/><span class="h-full align-top  font-bold" :class="sectionSubtitle">paradordelconvento@gmail.com</span></p>
+            <button class="bg-(--primary-normal) p-4 px-8 rounded-3xl text-(--blue-light)" :class="subtitleClass"><a href="#contacto">Contacto</a></button>
         </article>
      
     </section>

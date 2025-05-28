@@ -1,21 +1,21 @@
 <template>
 
     <div 
-    class="relative p-8 w-1/3 max-w-[500px] max-h-[200px]"
-    :style="`transform:translateY(${totalTranslate}vh);`"
+    class="relative p-8 w-full md:w-1/3 md:max-w-[500px] max-h-[200px] h-min"
+    :style="mobile?'':`transform:translateY(${totalTranslate}vh);`"
     >
     <!-- Background icon -->
     <Icon 
       :name="instruction.backgroundIcon" 
       style="height: 80%; width: 80%;"
-      class="absolute inset-0 opacity-40 text-(--primary-light-active) -translate-x-15 -translate-y-0"
+      class="absolute inset-0 opacity-40 text-(--primary-light-active) md:-translate-x-15 md-translate-y-0 -translate-x-10"
       aria-hidden="true"
     />
     
     <!-- Your content -->
     <div class="relative z-20 flex flex-col gap-1 align-center">
-        <h3 class="text-center  font-black text-(--blue-dark)" :class="titleClass">0{{number}}</h3>
-        <h3 class="text-center text-(--blue-normal)/90 font-semibold mb-2" :class="subtitleClass">{{ instruction.title }}</h3>
+        <h3 class="text-center  font-black text-(--blue-dark) " :class="grandTitleClass">0{{number}}</h3>
+        <h3 class="text-center text-(--blue-normal)/90 font-semibold mb-2 text-extrabold" :class="subtitleClass">{{ instruction.title }}</h3>
         <p class="text-justify self-start  font-semibold xl:text-md" :class="textClass">{{ instruction.description }}</p>
     </div>
    </div>
@@ -30,6 +30,10 @@ import { titleClass, subtitleClass, textClass } from '../utils/getClasses.js';
     },
     number:{
         type:Number,
+        required:true
+    },
+    mobile:{
+        type:Boolean,
         required:true
     }
 
