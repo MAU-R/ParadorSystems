@@ -51,7 +51,7 @@
 
 
 import { titleClass, subtitleClass, textClass } from '../utils/getClasses.js';
-const {props} = defineProps({
+const {props, index} = defineProps({
     props:{
         type:Object,
         required:true

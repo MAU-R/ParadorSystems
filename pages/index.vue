@@ -63,10 +63,11 @@
         </h3>
         <div class="translate-x-0 2xl:-translate-y-[9vh] xl:-translate-y-[6vh] md:-translate-y-[4vh] lg:-translate-y-[6vh] max-h-[90vh] grid grid-cols-6 gap-2 h-[90vh] grid-rows-2 z-100 max-w-[125vh] ml-auto mr-auto px-2 ">
             <room-type-card
-            v-for="type in roomTypes" :key="type.title"
+            v-for="type, index in filteredRoomTypes" :key="type.title"
             :class="type.optionalClass"
             class="rounded-4xl"
             :props="type"
+            :index="index"
             />
         </div>
     </section>
@@ -227,5 +228,11 @@ const services = [
 const isMobile = ref(false)
 onMounted(() => {
   isMobile.value = window.innerWidth < 640
+})
+
+const filteredRoomTypes = computed(() => {
+  return isMobile.value
+    ? roomTypes.filter((_, index) => index % 2 === 0)
+    : roomTypes
 })
 </script>
