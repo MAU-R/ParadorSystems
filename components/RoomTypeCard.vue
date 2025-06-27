@@ -1,26 +1,25 @@
 <template>
     <div
-    v-if="props.isBanner"
-     class="flex flex-col gap-6 p-6"
-     >
-     <div class="flex ">
-        <h1 class="mr-auto  font-black text-(--blue-dark)" :class="subtitleClass">{{ props.title }}</h1>
-        <button
-        class="rounded-[50%] bg-(--primary-light) h-[50px] w-[50px] border-solid border-2 border-(--primary-normal)"
-
+        v-if="props.isBanner"
+        class="flex flex-col gap-6 p-2 xl:p-6 overflow-hidden row-span-1 h-max md:h-auto"
         >
-        <a :href="props.type">
-    <Icon 
-      name="material-symbols:arrow-outward-rounded" 
-      style="height: 50px; width: 50px;"
-      class=" inset-0 opacity text-(--blue-normal) p-2"
-      aria-hidden="true"
-    /></a>
+        <div class="flex flex-row-reverse flex-nowrap">
+            <button
+            class="rounded-[50%] bg-(--primary-light) h-[50px] w-[50px] max-w-[28%] border-solid border-2 border-(--primary-normal)"
 
-    </button>
+            >
+                <a :href="props.type">
+                <Icon
+                name="material-symbols:arrow-outward-rounded" 
+                style="height: 50px; width: 50px; max-width: 95%;"
+                class=" inset-0 opacity text-(--blue-normal) p-2"
+                aria-hidden="true"
+                /></a>
+            </button>
+            <h1 class="mr-auto  font-extrabold text-(--blue-dark) px-2 py-4 xl:px-0 xl:py-0  overflow-clip" :class="subtitleClass">{{ props.title }}</h1>
      </div>
      <p
-     class=" text-(--blue-normal)/80"
+     class=" text-(--blue-normal)/80 mt-8 md:mt-0 mb-4 md:mb-0"
      :class="textClass"
      >
      {{ props.description }}
@@ -35,8 +34,8 @@
             <div
             v-for="service, index in props.services" :key="index"
             class="flex w-1/4 gap-1 text-(--blue-primary) xl:text-lg 2xl:text-xl md:text-sm lg:text-md font-bold">
-            <Icon 
-                :name="service.icon" 
+            <Icon
+                :name="service.icon"
                 style="height: 30px; width: 30px;"
                 class=" inset-0 opacity text-(--blue-normal) p-2"
                 aria-hidden="true"
@@ -55,6 +54,10 @@ const {props, index} = defineProps({
     props:{
         type:Object,
         required:true
+    },
+    isMobile:{
+        type: Boolean,
+        required: true
     }
 })
 function navigateTo  (route){

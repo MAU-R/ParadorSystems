@@ -9,7 +9,7 @@
         <p class="font-semibold text-(--primary-light-hover) text-sm md:text-md xl:text-lg 2xl:text-xl">Guanajuato centro</p>
         <p class="font-semibold text-(--primary-light-hover) text-sm md:text-md xl:text-lg 2xl:text-xl">473 117 0056</p>
       </div>
-  
+
       <!-- Desktop Nav (visible en md+) -->
       <div
         class="hidden md:flex flex-nowrap  xl:max-w-[63%] lg:max-w-[100%] ml-auto h-max justify-end  gap-4 w-1/3"
@@ -27,7 +27,7 @@
           <a :href="link.route">{{ link.name }}</a>
         </span>
       </div>
-  
+
       <!-- Mobile Menu Button (solo visible en < md) -->
 <div class="flex w-full md:hidden">
     <div
@@ -42,7 +42,7 @@
       </button>
 </div>
     </article>
-  
+
     <!-- Mobile Nav Menu -->
     <transition name="fade" >
       <div
@@ -65,7 +65,7 @@
       </div>
     </transition>
   </template>
-  
+
   <script setup>
   import { onClickOutside } from '@vueuse/core'
   const menuRef = ref(null)
@@ -79,10 +79,10 @@
     isOpen.value=false
 })
   const isOpen = ref(false)
-  
+
   const links = showMinimal
     ? [
-        { name: 'Regresar', route: '/', action: 'link' },
+        { name: 'Regresar', route: "/", action: 'link' },
         { name: 'Contacto', route: '#contacto', action: 'contact' },
         { name: 'Reservar', route: '#reservar', action: 'openUpModal' }
       ]
@@ -94,7 +94,7 @@
         { name: 'Reservar', route: '#reservar', action: 'openUpModal' }
       ]
   </script>
-  
+
   <style scoped>
   .fade-enter-active,
   .fade-leave-active {
@@ -105,4 +105,3 @@
     opacity: 0;
   }
   </style>
-  

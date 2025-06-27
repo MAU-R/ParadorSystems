@@ -56,15 +56,15 @@
     <!--LOCATION SECTION-->
     <location-section/>
  <!--SECTION FOR THE ROOMS-->
-    <section class="relative w-full bg-(--blue-dark) 2xl:h-[130vh] xl:h-[135vh] py-20">
+    <section class="relative w-full bg-(--blue-dark) 2xl:h-[130vh] xl:h-[135vh] py-5 lg:py-10 2xl:py-20">
         <h2 class=" font-black text-(--primary-light-active) w-full text-center" :class="titleClass">Habitaciones</h2>
-        <h3 class=" whitespace-nowrap text-[9vw] font-bold text-(--blue-light)/60 z-0 select-none w-full">
+        <h3 class=" whitespace-nowrap text-[9.2vw] font-bold text-(--blue-light)/60 z-0 select-none w-full">
         Parador del convento
         </h3>
         <div class="translate-x-0 2xl:-translate-y-[9vh] xl:-translate-y-[6vh] md:-translate-y-[4vh] lg:-translate-y-[6vh] max-h-[90vh] grid grid-cols-6 gap-2 h-[90vh] grid-rows-2 z-100 max-w-[125vh] ml-auto mr-auto px-2 ">
             <room-type-card
             v-for="type, index in filteredRoomTypes" :key="type.title"
-            :class="type.optionalClass"
+            :class="isMobile? type.mobileClass : type.optionalClass"
             class="rounded-4xl"
             :props="type"
             :index="index"
@@ -75,7 +75,7 @@
     <!--SECTION FOR THE SERVICES-->
     <section id="servicios" class="w-full h-[75vh] my-10 p-20 flex flex-col justify-between mb-48 mt-24">
        <h3 class="max-w-[55vw] font-bold" :class="titleClass">Servicios que incluye su estancia</h3>
-       <div class="h-1/2 w-full flex justify-between gap-10 flex-nowrap" >
+       <div class="h-1/2 md:w-full flex flex-col lg:flex-row justify-between gap-10 flex-nowrap" >
         <article
         v-for="service in services" :key="service.title"
         class="w-1/3 max-w-[25%] flex flex-col align-center"
@@ -142,6 +142,7 @@ const roomTypes = [
         title:'Suites',
         isBanner:true,
         optionalClass: 'bg-(--primary-light-active) col-span-4',
+        mobileClass: 'bg-(--primary-light-active) col-span-3 -row-end-1',
         description:'Explora nuestras suites y encuentra una estancia de en sueño',
         type:'/rooms#suites'
     },
@@ -149,6 +150,7 @@ const roomTypes = [
         title:'Habitacion de una matrimonial',
         isBanner:false,
         optionalClass: 'bg-(--primary-light) col-span-2',
+        mobileClass: '',
         description:'Habitaciones de 1 cama matrimonial excelentes para una estancia para dos personas',
         img:'https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?cs=srgb&dl=pexels-jvdm-1457842.jpg&fm=jpg',
         services:[
@@ -166,6 +168,7 @@ const roomTypes = [
         title:'Habitacion de dos matrimoniales',
         isBanner:false,
         optionalClass: 'bg-(--primary-light) col-span-2',
+        mobileClass: 'bg-(--primary-light-active) col-span-6',
         description:'Habitaciones de 2 cama matrimonial excelentes para una estancia para dos personas',
         img:'https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?cs=srgb&dl=pexels-jvdm-1457842.jpg&fm=jpg',
         services:[
@@ -184,6 +187,7 @@ const roomTypes = [
         title:'Habitacion de tres matrimoniales',
         isBanner:false,
         optionalClass: 'bg-(--primary-light) col-span-2',
+        mobileClass: '',
         description:'Habitaciones de 1 cama matrimonial excelentes para una estancia para dos personas',
         img:'https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?cs=srgb&dl=pexels-jvdm-1457842.jpg&fm=jpg',
         services:[
@@ -200,6 +204,7 @@ const roomTypes = [
     {
         title:'Habitaciones',
         isBanner:true,
+        mobileClass: 'bg-(--primary-light-active) col-span-3 -row-end-1',
         type:'/rooms#regular',
         optionalClass: 'bg-(--primary-light-active) col-span-2',
         description:'Explora todas las habitaciones que tenemos para ofrecerte',
